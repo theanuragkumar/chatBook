@@ -1037,6 +1037,67 @@ callTools.forEach((callTool)=>
 
 })
 
+
+// adding touch move and touch start event listener to open and close the left and right sidebaRS
+document.addEventListener('touchstart',(e)=>{
+  // alert("Touch start");
+  e.preventDefault();
+ let touch=e.touches[0];
+let  startX=touch.clientX;
+ let startY=touch.clientY;
+
+
+
+
+})
+
+
+
+
+document.addEventListener('touchmove',(e)=>{
+  // alert("Touch Move");
+ let touch=e.touches[0];
+  e.preventDefault();
+let DistX=startX-touch.clientX;
+  let DistY=startY-touch.clientY;
+
+  if(Math.abs(DistX)> Math.abs(DistY))
+      {
+          if(DistX>0)
+              {
+                  // console.log("drag Right");
+                  s_barDivL.style.left = "0px";
+                  s_barDivR.style.right = "-300px";
+
+   
+    }
+
+             else
+                  {
+                      // console.log("drag Left");
+                      inputDirection={ x:1, y:0 };
+                      s_barDivL.style.left = "-300px";
+                      s_barDivR.style.right = "0px";
+      
+                  }
+  
+      }
+  
+  
+   
+
+
+      // (lastPaintTime) =((lastPaintTime)/1000)-1;
+      // window.requestAnimationFrame(working);
+  
+  
+  
+    }
+
+)
+
+  
+
   
 
 

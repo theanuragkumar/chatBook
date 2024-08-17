@@ -8,7 +8,7 @@
     max-width:141px;
     text-align:left;
     padding : 2px 5px ;
-    font-size: 0.75em;
+    /* font-size: 0.75em; */
     border-radius: 25px;;
   }
 
@@ -30,7 +30,7 @@
         max-width: 500px;
         text-align:left;
         padding : 2px px ;
-        font-size: .93em;
+        /* font-size: .93em; */
         border-radius: 25px;;
     }
 
@@ -388,7 +388,7 @@ header{
    min-height:50px;
    max-height: fit-content;
     width:100vw;
-    z-index: 7;
+    z-index: 8;
     top:0px;
     /* padding-top:10px; */
     /* padding-right: 25px; */
@@ -418,11 +418,21 @@ width:40px;
 
 .OutervideoBar{
     display:none;
-    height:94vh;
+    z-index:7;
+    height:95vh;
     margin-top: 45px;
     width:100vw;
     max-width: 700px;
-    z-index:7 ;
+    padding:40px 4vmin 90px 4vmin;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 0.9em;
+    flex-direction: column;
+    align-self: center;
+
+
+ 
     background-color: pink;
 }
 
