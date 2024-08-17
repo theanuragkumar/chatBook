@@ -311,7 +311,7 @@ function outMsg(window,data) {
  
   divCreate.classList.add("right");
  
-    msgInput.focus();
+    // msgInput.focus();
     msgInput.setSelectionRange(0,0);
      msgInput.value = "";
         msgInput.style.height='40px';
