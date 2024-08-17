@@ -209,105 +209,105 @@ function outMsg(window,data) {
   var divCreate = document.createElement("div");
   divCreate.innerHTML =
     "<h5>" + "~ me" + "</h5>" + data.value + "<h6>" + data.time + "</h6>";
-    if(msgPrivate[index].style.left!="auto" && window =='group')
-      {
+    // if(msgPrivate[index].style.left!="auto" && window =='group')
+    //   {
         msgContent.appendChild(divCreate);
         
   msgContent.scrollTop = msgContent.scrollHeight;
   
-      }
+    //   }
 // this case is when no private chats are display flex i.e not open and putting data into each window from database
-      else if(msgPrivate[index].style.left!="auto" && window !='group')
-      {
-        msgPrivate.forEach(chatWindow=>{
-          if(chatWindow.classList.contains(window)== true)
-          {
-            chatWindow.appendChild(divCreate);
-            chatWindow.scrollTop = msgContent.scrollHeight;
+    //   else if(msgPrivate[index].style.left!="auto" && window !='group')
+    //   {
+    //     msgPrivate.forEach(chatWindow=>{
+    //       if(chatWindow.classList.contains(window)== true)
+    //       {
+    //         chatWindow.appendChild(divCreate);
+    //         chatWindow.scrollTop = msgContent.scrollHeight;
   
-          }
-        })
+    //       }
+    //     })
 
-      }
+    //   }
       
-      // important step in else part only
-      else{
+    //   // important step in else part only
+    //   else{
 
-            msgPrivate[index].appendChild(divCreate); 
-            //Concatenating the class User name to the msgPrivate to link with the buttons to the left 
-            msgPrivate[index].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
+    //         msgPrivate[index].appendChild(divCreate); 
+    //         //Concatenating the class User name to the msgPrivate to link with the buttons to the left 
+    //         msgPrivate[index].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
            
-            msgPrivate[index].scrollTop = msgContent.scrollHeight;
-        //emiting socket event to save the personal chattings in their named database
-        // unke khud k naam k database me unke sabhi contacts k sath baat store karna hai
+    //         msgPrivate[index].scrollTop = msgContent.scrollHeight;
+    //     //emiting socket event to save the personal chattings in their named database
+    //     // unke khud k naam k database me unke sabhi contacts k sath baat store karna hai
        
-            // just creating the left list of permanent contacts.
-        if(msgPrivate[index].childElementCount == 1 )
-        {
+    //         // just creating the left list of permanent contacts.
+    //     if(msgPrivate[index].childElementCount == 1 )
+    //     {
 
-          (listnameL).forEach((singleBtn)=>{
-            singleBtn.removeEventListener('pointerdown',handleLeftBtnclick);
+    //       (listnameL).forEach((singleBtn)=>{
+    //         singleBtn.removeEventListener('pointerdown',handleLeftBtnclick);
           
-             });
+    //          });
           
-            listofUserL[noLeftmgs] = document.createElement('li');
-            listofUserL[noLeftmgs].classList.add('pseudoClass');
-            listofUserL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
-            //created and appending the list.
+    //         listofUserL[noLeftmgs] = document.createElement('li');
+    //         listofUserL[noLeftmgs].classList.add('pseudoClass');
+    //         listofUserL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
+    //         //created and appending the list.
             
-            s_barUListL.appendChild(listofUserL[noLeftmgs]);
+    //         s_barUListL.appendChild(listofUserL[noLeftmgs]);
         
           
-          //writing the button
-          listBtnL[noLeftmgs]=document.createElement('button');
-          listBtnL[noLeftmgs].classList.add('listBtn');
-          listBtnL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
+    //       //writing the button
+    //       listBtnL[noLeftmgs]=document.createElement('button');
+    //       listBtnL[noLeftmgs].classList.add('listBtn');
+    //       listBtnL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
 
-          listofUserL[noLeftmgs].appendChild( listBtnL[noLeftmgs]);
+    //       listofUserL[noLeftmgs].appendChild( listBtnL[noLeftmgs]);
         
         
         
-            // writing the user icon
-            iconofUserL[noLeftmgs]=document.createElement('span');
-            iconofUserL[noLeftmgs].classList.add('material-symbols-outlined');
-            iconofUserL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
-            iconofUserL[noLeftmgs].classList.add('iconPosition');
-            listBtnL[noLeftmgs].appendChild( iconofUserL[noLeftmgs]);
-            iconofUserL[noLeftmgs].innerHTML='person';
+    //         // writing the user icon
+    //         iconofUserL[noLeftmgs]=document.createElement('span');
+    //         iconofUserL[noLeftmgs].classList.add('material-symbols-outlined');
+    //         iconofUserL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
+    //         iconofUserL[noLeftmgs].classList.add('iconPosition');
+    //         listBtnL[noLeftmgs].appendChild( iconofUserL[noLeftmgs]);
+    //         iconofUserL[noLeftmgs].innerHTML='person';
           
         
           
         
-            // writing the user name inside the button
-            listnameL[noLeftmgs]=document.createElement('span');
-            listnameL[noLeftmgs].classList.add('pseudoClass');
-            listnameL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
-            listBtnL[noLeftmgs].appendChild( listnameL[noLeftmgs]);
-            if(headtext.innerHTML == name) listnameL[noLeftmgs].innerHTML=headtext.innerHTML+' (me)';
-            else  listnameL[noLeftmgs].innerHTML=headtext.innerHTML;
-          //adding event listener for the buttons in the left side bar.
-          //keep in mind when the number of buttons is increased then the previous event listener should be cancelled and new event listener
-          // should be added.
+    //         // writing the user name inside the button
+    //         listnameL[noLeftmgs]=document.createElement('span');
+    //         listnameL[noLeftmgs].classList.add('pseudoClass');
+    //         listnameL[noLeftmgs].classList.add((headtext.innerHTML).trim().split(/\s+/)[0]);
+    //         listBtnL[noLeftmgs].appendChild( listnameL[noLeftmgs]);
+    //         if(headtext.innerHTML == name) listnameL[noLeftmgs].innerHTML=headtext.innerHTML+' (me)';
+    //         else  listnameL[noLeftmgs].innerHTML=headtext.innerHTML;
+    //       //adding event listener for the buttons in the left side bar.
+    //       //keep in mind when the number of buttons is increased then the previous event listener should be cancelled and new event listener
+    //       // should be added.
 
           
-          (listBtnL).forEach((singleBtn)=>{
+    //       (listBtnL).forEach((singleBtn)=>{
          
-            singleBtn.addEventListener('pointerdown',handleLeftBtnclick);
-            // opening the privateMsg when clicked on once  
-           // index
-          });
+    //         singleBtn.addEventListener('pointerdown',handleLeftBtnclick);
+    //         // opening the privateMsg when clicked on once  
+    //        // index
+    //       });
           
-            // //we are saving the contact in the  username specific personal collection only 
-            // socket.emit('saveContact',(name),({
-            //   contactName:listnameL[noLeftmgs].innerHTML
-            // }))
-            noLeftmgs++;
+    //         // //we are saving the contact in the  username specific personal collection only 
+    //         // socket.emit('saveContact',(name),({
+    //         //   contactName:listnameL[noLeftmgs].innerHTML
+    //         // }))
+    //         noLeftmgs++;
          
-         }
+    //      }
 
 
 
-      }
+    //   }
  
   divCreate.classList.add("right");
  
@@ -914,18 +914,18 @@ document.addEventListener("keypress", (e) => {
         };
   
       }
-    // data='<h5>'+name+ '</h5>'+msgInput.value+'<h6>' +ctime.toLocaleString()+'</h6>';
-    if(msgPrivate[index].style.left!="auto")
-      {
-        // socket.emit("message", data);
-        outMsg('group',data);
-      }
-      else{
-        console.log('emitteddddd0');
+    // // data='<h5>'+name+ '</h5>'+msgInput.value+'<h6>' +ctime.toLocaleString()+'</h6>';
+    // // if(msgPrivate[index].style.left!="auto")
+    // //   {
+    // //     // socket.emit("message", data);
+    // //     outMsg('group',data);
+    // //   }
+    // //   else{
+    //     console.log('emitteddddd0');
         // socket.emit('personalMsg',name,data);
        // data.name contains the headtext.innerhtml
         outMsg(data.name,data);
-      }
+    //   }
 
       
    
