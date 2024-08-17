@@ -880,17 +880,17 @@ sendBtn.addEventListener("pointerdown", () => {
 
     }
     // data='<h5>'+name+ '</h5>'+msgInput.value+'<h6>' +ctime.toLocaleString()+'</h6>';
-    if(msgPrivate[index].style.left!="auto")
-    {
-    //   socket.emit("message", data);
-      outMsg('group',data);
-    }
-    else{
+    // if(msgPrivate[index].style.left!="auto")
+    // {
+    // //   socket.emit("message", data);
+    //   outMsg('group',data);
+    // }
+    // else{
     //   socket.emit('personalMsg',name,data);
       console.log('emitteddddd1');
       outMsg(data.name,data);
-    }
-  }
+//    }
+  } 
 });
 
 document.addEventListener("keypress", (e) => {
