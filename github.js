@@ -34,7 +34,7 @@ let s_Icon = document.querySelector(".material-symbols-outlined");
 let mode = "dark",
   i = 0,iVcheck =0,noLeftmgs=0,nochatWindow=0;       // i value check
 let data, msgCount,windowFlag=true;  //windowFlag is used to check the group chat user chat window is already present or not.
-var index=0,className;
+var index=0,className,startX,startY;
 // const socket = io("http://localhost:8000");
 
 let name = prompt("Enter your name");
@@ -1040,11 +1040,11 @@ callTools.forEach((callTool)=>
 
 // adding touch move and touch start event listener to open and close the left and right sidebaRS
 document.addEventListener('touchstart',(e)=>{
-  alert("Touch start");
+  // alert("Touch start");
   e.preventDefault();
  let touch=e.touches[0];
-let  startX=touch.clientX;
- let startY=touch.clientY;
+  startX=touch.clientX;
+  startY=touch.clientY;
 
 
 
@@ -1065,7 +1065,7 @@ let DistX=startX-touch.clientX;
       {
           if(DistX>0)
               {
-                   alert("drag Right");
+                  //  alert("drag Right");
                   s_barDivL.style.left = "0px";
                   s_barDivR.style.right = "-300px";
 
@@ -1074,7 +1074,7 @@ let DistX=startX-touch.clientX;
 
              else
                   {
-                    alert("drag left");
+                    // alert("drag left");
                       inputDirection={ x:1, y:0 };
                       s_barDivL.style.left = "-300px";
                       s_barDivR.style.right = "0px";
