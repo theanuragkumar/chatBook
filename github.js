@@ -14,6 +14,7 @@ let callTools = document.querySelectorAll('.call');
 let OuterVideo = document.querySelector('.OutervideoBar');
 let InnerVideo = document.querySelector('.NestedvideoBar')
 // let msgPrivate = document.querySelector(".msg_private");
+let fullscreenBtn = document.querySelector('#fullScreen');
 let ApearLSbar = document.querySelector(".apearL");
 let ApearRSbar = document.querySelector(".apearR");
 let s_barDivL = document.querySelector("#s_barL");
@@ -44,6 +45,30 @@ if (name == "" || name == null) {
     name = prompt("Enter your name");
   } while (name == "" || name == null);
 }
+
+fullscreenBtn.addEventListener('pointerdown',()=>{
+  if(document.documentElement.requestFullscreen)
+   {
+     document.documentElement.requestFullscreen();
+   }
+   else if(document.documentElement.mozRequestFullscreen)
+     {
+       document.documentElement.mozRequestFullscreen();
+     }
+     else if(document.documentElement.webkitRequestFullscreen)
+       {
+         document.documentElement.webkitRequestFullscreen();
+     
+     
+       }
+       else if(document.documentElement.msRequestFullscreen)
+         {
+           document.documentElement.msRequestFullscreen();
+         }
+   
+ 
+  })
+ 
 
 function handleBtnclick(event)
 {
@@ -1061,27 +1086,27 @@ document.addEventListener('touchmove',(e)=>{
 let DistX=startX-touch.clientX;
   let DistY=startY-touch.clientY;
 
-  if(Math.abs(DistX)> Math.abs(DistY))
-      {
-          if(DistX>0)
-              {
-                  //  alert("drag Right");
-                  s_barDivL.style.left = "0px";
-                  s_barDivR.style.right = "-300px";
+  // if(Math.abs(DistX)> Math.abs(DistY))
+  //     {
+  //         if(DistX>0)
+  //             {
+  //                 //  alert("drag Right");
+  //                 s_barDivL.style.left = "0px";
+  //                 s_barDivR.style.right = "-300px";
 
    
-    }
+  //   }
 
-             else
-                  {
-                    // alert("drag left");
-                      inputDirection={ x:1, y:0 };
-                      s_barDivL.style.left = "-300px";
-                      s_barDivR.style.right = "0px";
+  //            else
+  //                 {
+  //                   // alert("drag left");
+  //                     inputDirection={ x:1, y:0 };
+  //                     s_barDivL.style.left = "-300px";
+  //                     s_barDivR.style.right = "0px";
       
-                  }
+  //                 }
   
-      }
+  //     }
   
   
    
@@ -1095,6 +1120,35 @@ let DistX=startX-touch.clientX;
     }
 
 )
+
+
+document.addEventListener('touchend',(e)=>{
+  if(Math.abs(DistX)> Math.abs(DistY))
+    {
+        if(DistX>50)
+            {
+                //  alert("drag Right");
+      
+                s_barDivL.style.left = "-300px";
+                // s_barDivR.style.right = "0px";
+
+ 
+  }
+
+           else
+                {
+                  // alert("drag left");
+                    
+
+                    s_barDivL.style.left = "0px";
+                    // s_barDivR.style.right = "-300px";
+    
+                }
+
+    }
+
+})
+
 
   
 
